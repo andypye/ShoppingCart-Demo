@@ -1,22 +1,8 @@
-# ShoppingCartTech test for Reveri
+# ShoppingCartTech Demo
  
-## As per the spec, I've excluded items that there wasn't time for ...
-
-The product and cart screens are working as required, but I didn't have have time to get to the bottom of why the quantity only updates the first item you add to the cart for a product
- and why onthe shopping cart the quantities don't update (even though they are updating in the model)
-
 #### API 
 The API class is very very basic, but it does the job of getting the products. 
 I missed out proper error handling etc, as the focus was to just get the data and display in the app
-
-#### The persistence
-I didn't implement this in the end, although I left the code that might make the call in place  
-    eg. .onChange(of: scenePhase) { phase in
-            if phase == .inactive { saveAction() }
-
-#### Accessibility
-I didn't implement accessibility identifiers, but I did test dynamic font sizes in the previews and, although they don't look stunning, it wasn't so bad 
-
 
 ## Things I'd have improved on if this were a real project
 I didn't spend a huge amount of time on the UI, but hopefully it looks reasonable
@@ -25,7 +11,6 @@ I don't think it would lend itself easily to the persistence etc
 
 I included a simple rating view, this only does full stars for now, as I didn't have time to let it cater for fractions.
 I still feel it looks better than just a number
-
 
 ## Some other notes
 I did a basic reusable component ProductComponentView, with a styler struct that contains some common style elements.
