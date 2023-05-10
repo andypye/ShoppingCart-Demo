@@ -1,4 +1,8 @@
 # ShoppingCartTech Demo
+
+### Introduction
+This is a very simple SwiftUI Demo project. 
+It just has a simple products screen and shopping cart screen.
  
 #### API 
 The API class is very very basic, but it does the job of getting the products. 
@@ -24,4 +28,3 @@ I created an APIProduct struct that was the codable one to bring in from the API
 I then tranformed those into Products. I'd normally want to do this to add a layer of separation, and also if you were to have multiple data sources to provide products for example
 
 There are a bunch of print statements just to help me debug at this stage. Normally I'd use a logger package and have different levels of logging available, but not for this simple project.
-
