@@ -12,6 +12,8 @@ I don't think it would lend itself easily to the persistence etc
 I included a simple rating view, this only does full stars for now, as I didn't have time to let it cater for fractions.
 I still feel it looks better than just a number
 
+There is no real error handling or logging here, as it's just a quick demo project
+
 ## Some other notes
 I did a basic reusable component ProductComponentView, with a styler struct that contains some common style elements.
 The idea being that you could inject a different style for different branding etc (eg if you have 1 codebase for 2 apps)
