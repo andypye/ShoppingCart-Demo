@@ -1,6 +1,6 @@
 # ShoppingCartTech Demo
 
-## Added this morning!
+## Added this morning!
 I've just brought in my logger, that I will soon be turning into a cocoapod. I just wanted to show that and some very basic logging.
 Also, please note, I normally use gitflow, but this was just a quickly created repo, so it's just on the main branch.
 
