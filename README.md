@@ -1,5 +1,8 @@
 # ShoppingCartTech Demo
 
+## Added this morning!
+I've just brought in my logger, that I will soon be turning into a cocoapod. I just wanted to show that and some very basic logging.
+
 ### Introduction
 This is a very simple SwiftUI Demo project. 
 It just has a simple products screen and shopping cart screen.
