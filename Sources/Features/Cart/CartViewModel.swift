@@ -63,10 +63,10 @@ class CartViewModel: ObservableObject {
         }
         // Just increment quantity of existing item
         cartItem.incrementQuantity(product: product)
-        print("Number of Cart Items \(cartItems.count)")
-        print("Cart:")
+        logger.info("Number of Cart Items \(cartItems.count)")
+        logger.info("Cart:")
         for item in cartItems{
-            print("\(item.product.title) - \(item.quantity)")
+            logger.info("\(item.product.title) - \(item.quantity)")
         }
     }
     

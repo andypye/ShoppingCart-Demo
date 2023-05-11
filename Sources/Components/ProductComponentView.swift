@@ -124,7 +124,7 @@ struct ProductComponentView_Previews: PreviewProvider {
                 Text("Cart style")
                     .bold()
                     .underline()
-                ProductComponentView(model: ProductComponentView.Model(product: previewProduct, quantity: previewCart.countInCart(for: previewProduct.id ?? 0)), viewMode: .cart, styler: ProductComponentView.Styler.defaultStyler, onClickAdd: { print("+ Button Pressed") }, onClickRemove: { print("- Button Pressed") })
+                ProductComponentView(model: ProductComponentView.Model(product: previewProduct,quantity: previewCart.countInCart(for: previewProduct.id ?? 0)), viewMode: .cart, styler: ProductComponentView.Styler.defaultStyler, onClickAdd: { print("+ Button Pressed") }, onClickRemove: { print("- Button Pressed") })
             }
             .previewDisplayName("Cart Style")
             VStack {

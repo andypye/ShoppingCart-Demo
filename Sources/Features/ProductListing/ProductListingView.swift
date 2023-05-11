@@ -70,7 +70,7 @@ struct ProductView_Previews: PreviewProvider {
     static var previews: some View {
         ProductListingView(saveAction: {
             guard productListingViewModel.products.count > 0 else {
-                print("There is no product")
+                logger.info("There is no product")
                 return
             }
             let currentProduct = productListingViewModel.products[0]

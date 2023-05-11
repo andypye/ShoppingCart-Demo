@@ -12,6 +12,7 @@ struct ShoppingCartApp: App {
             .environmentObject(ProductListingViewModel())
             .environmentObject(CartViewModel())
             .onAppear {
+                logger.info("On Appear at startup")
                 // Load of persisted Data might be here
             }
             

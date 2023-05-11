@@ -24,18 +24,22 @@ class ProductListingViewModel: ObservableObject {
         if let productInfo = productInfo {
             self.productInventory = productInfo
             products = productInfo.products.map { Product(product: $0) }
+        } else {
+            logger.warning("if let productInfo = productInfo failed")
         }
     }
     
     private func fetchProductsAsync() async -> APIProductInventory? {
         do {
             guard let productInventory = try await api.getProducts() else {
-                print("API returned no data.")
+                logger.error("guard let productInventory = try await api.getProducts() failed, so we have no products.")
+                logger.info("API returned no data.")
                 return productInventory
             }
+            logger.info("We have some products")
             return productInventory
         } catch {
-            print("Unexpected error getting products: \(error).")
+            logger.info("Unexpected error getting products: \(error).")
             return nil
         }
     }
@@ -44,13 +48,14 @@ class ProductListingViewModel: ObservableObject {
         Task {
             guard let fetchedProductInventory = await fetchProductsAsync() else {
                 // TODO: Show an error
+                logger.error("guard let fetchedProductInventory = await fetchProductsAsync() FAILED")
                 return
             }
             DispatchQueue.main.async {
                 self.productInventory = fetchedProductInventory
                 self.products = fetchedProductInventory.products.map { Product(product: $0) }
                 self.productCount = fetchedProductInventory.products.count 
-                print("ProductInventory updated. Count of products: \(self.productInventory.products.count)")
+                logger.info("ProductInventory updated. Count of products: \(self.productInventory.products.count)")
             }
         }
     }

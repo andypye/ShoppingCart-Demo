@@ -31,11 +31,11 @@ class Product: ObservableObject, Equatable, Hashable {
     
     func decrementStockLevel(product: Product) {
         guard stock > 0 else {
-            print("Stock is at 0. Purchase no longer available")
+            logger.info("Stock is at 0. Purchase no longer available")
             return
         }
         stock = stock - 1
-        print("Stock reduced to \(stock)")
+        logger.info("Stock reduced to \(stock)")
     }
     
     func incrementStockLevel(product: Product) {

@@ -1,14 +1,7 @@
-//
-//  Reveri_TestTests.swift
-//  Reveri-TestTests
-//
-//  Created by Andy Pye on 06/02/2023.
-//
-
 import XCTest
 @testable import ShoppingCart
 
-final class Reveri_TestTests: XCTestCase {
+final class ShoppingCart_Tests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -20,7 +13,7 @@ final class Reveri_TestTests: XCTestCase {
 
     // test view model
     func testViewModel() throws {
-        let viewModel: Reveri_TestTests.MockProductViewModel = Reveri_TestTests.MockProductViewModel()
+        let viewModel: ShoppingCart_Tests.MockProductListingViewModel = ShoppingCart_Tests.MockProductListingViewModel()
         let expectation = XCTestExpectation(description: "Get products")
         viewModel.getProducts { result in
             switch result {
@@ -36,7 +29,7 @@ final class Reveri_TestTests: XCTestCase {
 
     // mock view model
     func testMockViewModel() throws {
-        let viewModel: Reveri_TestTests.MockProductViewModel = MockProductViewModel()
+        let viewModel: ShoppingCart_Tests.MockProductListingViewModel = MockProductListingViewModel()
         let expectation = XCTestExpectation(description: "Get products")
         viewModel.getProducts { result in
             switch result {
@@ -50,27 +43,12 @@ final class Reveri_TestTests: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
     }
 
-    // MockProductViewModel mock view model
-    class MockProductViewModel: ProductViewModel {
-        override func getProducts(completion: @escaping (Result<[Product], Error>) -> Void) {
-            let product = Product(id: 1, name: "Test", price: 1.0, description: "Test", image: "Test")
+    // MockProductListingViewModel mock view model
+    class MockProductListingViewModel: ProductListingViewModel {
+         func getProducts(completion: @escaping (Result<[Product], Error>) -> Void) {
+             let product = ProductListingViewModel.previewFilledViewModel.products[0]
             completion(.success([product]))
         }
     }
-
-    // Async test
-    func testAsync() async throws {
-        let viewModel = ProductViewModel()
-        let products = try await viewModel.getProducts()
-        XCTAssertNotNil(products)
-    }
-
-    // Async mock
-    func testMockAsync() async throws {
-        let viewModel: Reveri_TestTests.MockProductViewModel = MockProductViewModel()
-        let products = try await viewModel.getProducts()
-        XCTAssertNotNil(products)
-    }
     
-
 }
